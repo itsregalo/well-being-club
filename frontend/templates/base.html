@@ -103,21 +103,8 @@
                     </ul>
                 </li>
                 <li class="menu-item menu-item-has-children">
-                    <a href="#">Blog</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item">
-                            <a href="blog-grid.html">Blog Grid</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="blog-list.html">Blog List</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="blog-masonry.html">Blog Masonry</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="blog-details.html">Blog Details</a>
-                        </li>
-                    </ul>
+                    <a href="{% url 'blog:blog-list' %}">Posts</a>
+                    
                 </li>
                 <li class="menu-item menu-item-has-children">
                     <a href="#">Portfolio</a>
@@ -288,22 +275,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item menu-item-has-children">
-                            <a href="#">Blog</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a href="blog-grid.html">Blog Grid</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="blog-list.html">Blog List</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="blog-masonry.html">Blog Masonry</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="blog-details.html">Blog Details</a>
-                                </li>
-                            </ul>
+                        <li class="menu-item">
+                            <a href="{% url 'blog:blog-list' %}">Posts</a>
+                            
                         </li>
                         <li class="menu-item menu-item-has-children">
                             <a href="#">Portfolio</a>
