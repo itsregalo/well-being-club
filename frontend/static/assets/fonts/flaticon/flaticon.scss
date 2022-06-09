@@ -1,0 +1,173 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?71497eafa291afe9cf2f843152cfa6d1") format("truetype"),
+url("./flaticon.woff?71497eafa291afe9cf2f843152cfa6d1") format("woff"),
+url("./flaticon.woff2?71497eafa291afe9cf2f843152cfa6d1") format("woff2"),
+url("./flaticon.eot?71497eafa291afe9cf2f843152cfa6d1#iefix") format("embedded-opentype"),
+url("./flaticon.svg?71497eafa291afe9cf2f843152cfa6d1#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "drugs": "\f101",
+    "hand-washing": "\f102",
+    "positive": "\f103",
+    "blood-donation": "\f104",
+    "vegetables": "\f105",
+    "fruits-and-vegetables": "\f106",
+    "handshake": "\f107",
+    "peace": "\f108",
+    "dove": "\f109",
+    "gift": "\f10a",
+    "wedding-gift": "\f10b",
+    "gift-box": "\f10c",
+    "email": "\f10d",
+    "planet-earth": "\f10e",
+    "trees": "\f10f",
+    "quote": "\f110",
+    "mission": "\f111",
+    "infinity": "\f112",
+    "note": "\f113",
+    "medicine": "\f114",
+    "diet": "\f115",
+    "hands": "\f116",
+    "esteem": "\f117",
+    "idea": "\f118",
+    "dollar-coin": "\f119",
+    "dollar-coin-1": "\f11a",
+    "dollar-coin-2": "\f11b",
+    "open-box": "\f11c",
+    "open-box-1": "\f11d",
+    "heart": "\f11e",
+    "doacao": "\f11f",
+    "solidariedade": "\f120",
+    "donation-1": "\f121",
+    "user": "\f122",
+    "user-1": "\f123",
+    "newspaper-folded": "\f124",
+    "united": "\f125",
+);
+
+.flaticon-drugs:before {
+    content: map-get($flaticon-map, "drugs");
+}
+.flaticon-hand-washing:before {
+    content: map-get($flaticon-map, "hand-washing");
+}
+.flaticon-positive:before {
+    content: map-get($flaticon-map, "positive");
+}
+.flaticon-blood-donation:before {
+    content: map-get($flaticon-map, "blood-donation");
+}
+.flaticon-vegetables:before {
+    content: map-get($flaticon-map, "vegetables");
+}
+.flaticon-fruits-and-vegetables:before {
+    content: map-get($flaticon-map, "fruits-and-vegetables");
+}
+.flaticon-handshake:before {
+    content: map-get($flaticon-map, "handshake");
+}
+.flaticon-peace:before {
+    content: map-get($flaticon-map, "peace");
+}
+.flaticon-dove:before {
+    content: map-get($flaticon-map, "dove");
+}
+.flaticon-gift:before {
+    content: map-get($flaticon-map, "gift");
+}
+.flaticon-wedding-gift:before {
+    content: map-get($flaticon-map, "wedding-gift");
+}
+.flaticon-gift-box:before {
+    content: map-get($flaticon-map, "gift-box");
+}
+.flaticon-email:before {
+    content: map-get($flaticon-map, "email");
+}
+.flaticon-planet-earth:before {
+    content: map-get($flaticon-map, "planet-earth");
+}
+.flaticon-trees:before {
+    content: map-get($flaticon-map, "trees");
+}
+.flaticon-quote:before {
+    content: map-get($flaticon-map, "quote");
+}
+.flaticon-mission:before {
+    content: map-get($flaticon-map, "mission");
+}
+.flaticon-infinity:before {
+    content: map-get($flaticon-map, "infinity");
+}
+.flaticon-note:before {
+    content: map-get($flaticon-map, "note");
+}
+.flaticon-medicine:before {
+    content: map-get($flaticon-map, "medicine");
+}
+.flaticon-diet:before {
+    content: map-get($flaticon-map, "diet");
+}
+.flaticon-hands:before {
+    content: map-get($flaticon-map, "hands");
+}
+.flaticon-esteem:before {
+    content: map-get($flaticon-map, "esteem");
+}
+.flaticon-idea:before {
+    content: map-get($flaticon-map, "idea");
+}
+.flaticon-dollar-coin:before {
+    content: map-get($flaticon-map, "dollar-coin");
+}
+.flaticon-dollar-coin-1:before {
+    content: map-get($flaticon-map, "dollar-coin-1");
+}
+.flaticon-dollar-coin-2:before {
+    content: map-get($flaticon-map, "dollar-coin-2");
+}
+.flaticon-open-box:before {
+    content: map-get($flaticon-map, "open-box");
+}
+.flaticon-open-box-1:before {
+    content: map-get($flaticon-map, "open-box-1");
+}
+.flaticon-heart:before {
+    content: map-get($flaticon-map, "heart");
+}
+.flaticon-doacao:before {
+    content: map-get($flaticon-map, "doacao");
+}
+.flaticon-solidariedade:before {
+    content: map-get($flaticon-map, "solidariedade");
+}
+.flaticon-donation-1:before {
+    content: map-get($flaticon-map, "donation-1");
+}
+.flaticon-user:before {
+    content: map-get($flaticon-map, "user");
+}
+.flaticon-user-1:before {
+    content: map-get($flaticon-map, "user-1");
+}
+.flaticon-newspaper-folded:before {
+    content: map-get($flaticon-map, "newspaper-folded");
+}
+.flaticon-united:before {
+    content: map-get($flaticon-map, "united");
+}
