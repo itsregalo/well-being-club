@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Courses{% endblock title %}
+
+{% block body %}
+
+
+    <!-- Subheader Start -->
+    <div class="subheader relative z-1" style="background-image: url(static/assets/images/subheader.jpg);">
+        <div class="container relative z-1">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="page_title">Courses</h1>
+                    <div class="page_breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Courses</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <img src="{% static 'assets/images/elements/element_19.png' %}" alt="element" class="element_1 slideRightTwo">
+            <img src="{% static 'assets/images/elements/element_10.png' %}" alt="element" class="element_2 zoom-fade">
+            <img src="{% static 'assets/images/elements/element_20.png' %}" alt="element" class="element_3 rotate_elem">
+            <img src="{% static 'assets/images/elements/element_21.png' %}" alt="element" class="element_4 rotate_elem">
+        </div>
+    </div>
+    <!-- Subheader End -->
+    <!-- Coach Grid Start -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Coach block -->
+                <div class="col-xl-4 col-md-6">
+                    <div class="coach_block">
+                        <div class="coach_img">
+                            <img src="{% static 'assets/images/coach/1.jpg' %}" alt="img" class="image-fit">
+                            <div class="coach_badges">
+                                <span class="tag_badge bg-thm-color-four">Free</span>
+                            </div>
+                            <a href="course-details.html" class="thm-btn thm-color-two bg-thm-color-white thm-color-two-shadow btn-circle link">
+                                <i class="fal fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="coach_caption">
+                            <div class="coach_meta">
+                                <a href="courses.html" class="coach_cat thm-btn bg-thm-color-three thm-color-three-shadow btn-rounded">Business</a>
+                                <div class="ratings">
+                                    <i class="fal fa-star active"></i>
+                                    <i class="fal fa-star active"></i>
+                                    <i class="fal fa-star active"></i>
+                                    <i class="fal fa-star active"></i>
+                                    <i class="fal fa-star"></i>
+                                </div>
+                            </div>
+                            <h5 class="title mb-xl-20">
+                                <a href="course-details.html">
+                                    Most Powerful Thing You Have Self Coaching Scholars
+                                </a>
+                            </h5>
+                            <div class="author">
+                                <img src="{% static 'assets/images/author/1.jpg' %}" alt="img" class="image-fit">
+                                <a href="courses.html" class="thm-color-one">Wilbert A. Toney</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Coach block -->
+                
+            </div>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a href="#" class="page-link">
+                            <i class="fal fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">01</a>
+                    </li>
+                    <li class="page-item active">
+                        <a href="#" class="page-link">02</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">03</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">
+                            <i class="fal fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Pagination -->
+        </div>
+    </section>
+    <!-- Coach Grid End -->
+    <!-- Plane Start -->
+    <div class="bg-thm-color-two plane_box relative z-1">
+        <div class="container relative z-1">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 col-lg-11 relative z-1">
+                    <img src="{% static 'assets/images/elements/element_6.png' %}" class="element_1 rotate_elem" alt="Element">
+                    <h2 class="thm-color-white">The Life Coach School Has The Most Amazing Tools And Cutting-Edge Training</h2>
+                </div>
+            </div>
+            <img src="{% static 'assets/images/elements/element_7.png' %}" class="element_2 zoom-fade" alt="Element">
+        </div>
+    </div>
+    <!-- Plane End -->
+    <!-- Portfolio Start -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-lg-7">
+                    <div class="section-title left-align">
+                        <p class="subtitle">
+                            <i class="fal fa-book"></i>
+                            Project Gallery
+                        </p>
+                        <h3 class="title">We Have 34520+ Project Successfully Done</h3>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-left text-lg-right">
+                    <a href="portfolio-grid.html" class="thm-btn bg-thm-color-white thm-color-one btn-border btn-rectangle mb-xl-60">
+                        View All Project
+                        <i class="fal fa-chevron-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="portfolio_box">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/1.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <div class="portfolio_caption">
+                            <div class="text_box">
+                                <h4 class="title mb-0">
+                                    <a href="portfolio-details.html">How To Gain Knowledge</a>
+                                </h4>
+                                <p>Business Coach</p>
+                            </div>
+                            <div class="btn_box mb-xl-30">
+                                <a href="portfolio-details.html" class="thm-btn bg-thm-color-two-light thm-color-two btn-rectangle btn-small"><i class="fal fa-chevron-right font-weight-bold"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="portfolio_box">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/2.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <div class="portfolio_caption">
+                            <div class="text_box">
+                                <h4 class="title mb-0">
+                                    <a href="portfolio-details.html">Online Consulting Tutorials</a>
+                                </h4>
+                                <p>Business Coach</p>
+                            </div>
+                            <div class="btn_box mb-xl-30">
+                                <a href="portfolio-details.html" class="thm-btn bg-thm-color-two-light thm-color-two btn-rectangle btn-small"><i class="fal fa-chevron-right font-weight-bold"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio End -->
+
+{% endblock body %}
