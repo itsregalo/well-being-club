@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Contact Us
+{% endblock title %}
+
+{% block body %}
+
+
+    <!-- Subheader Start -->
+    <div class="subheader relative z-1" style="background-image: url(/static/assets/images/subheader.jpg);">
+        <div class="container relative z-1">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="page_title">Contact Us</h1>
+                    <div class="page_breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <img src="{% static 'assets/images/elements/element_19.png' %}" alt="element" class="element_1 slideRightTwo">
+            <img src="{% static 'assets/images/elements/element_10.png' %}" alt="element" class="element_2 zoom-fade">
+            <img src="{% static 'assets/images/elements/element_20.png' %}" alt="element" class="element_3 rotate_elem">
+            <img src="{% static 'assets/images/elements/element_21.png' %}" alt="element" class="element_4 rotate_elem">
+        </div>
+    </div>
+    <!-- Subheader End -->
+    <!-- Contact Faq Box Start -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <p class="subtitle">
+                            <i class="fal fa-book"></i>
+                            Support Team
+                        </p>
+                        <h3 class="title">We Have a Professional Support Team</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact_faq_box shadow_1">
+                        <div class="icon">
+                            <img src="{% static 'assets/images/icons/icon_14.png' %}" alt="icon" class="image-fit-contain">
+                        </div>
+                        <div class="text">
+                            <h4>Customer Support</h4>
+                            <p>Sed ut perspiciatis unde omnis iste natus voluptatem accusantium doloremque laudantium</p>
+                            <a href="#" class="thm-btn bg-thm-color-three thm-color-three-shadow btn-rectangle">Take A Coupon <i class="fal fa-chevron-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact_faq_box shadow_1">
+                        <div class="icon">
+                            <img src="{% static 'assets/images/icons/icon_15.png' %}" alt="icon" class="image-fit-contain">
+                        </div>
+                        <div class="text">
+                            <h4>Have Any Questions</h4>
+                            <p>Sed ut perspiciatis unde omnis iste natus voluptatem accusantium doloremque laudantium</p>
+                            <a href="contact.html" class="thm-btn bg-thm-color-two thm-color-two-shadow btn-rectangle">Contact Us <i class="fal fa-chevron-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Faq Box End -->
+    <!-- Contact Map & Info Start -->
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-4 col-lg-5">
+                <div class="section-title left-align">
+                    <p class="subtitle">
+                        <i class="fal fa-book"></i>
+                        Contact Us
+                    </p>
+                    <h3 class="title">Have Any Courses Get In Touch</h3>
+                </div>
+                <div class="contact_info mb-md-80">
+                    <ul>
+                        <li>
+                            <i class="icon fal fa-map-marker-alt"></i>
+                            <div class="text">
+                                <h6>Location</h6>
+                                <p>354 Oakridge, Camden NJ 08102 - USA</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon fal fa-envelope-open-text"></i>
+                            <div class="text">
+                                <h6>Email Address</h6>
+                                <p>supportcoachinfo@gmail.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon fal fa-phone"></i>
+                            <div class="text">
+                                <h6>Contact Us</h6>
+                                <p><strong>Mobile: </strong> +012 (345) 789 99</p>
+                                <p><strong>Hotline: </strong> +563 789 55</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-7">
+                <div class="contact_map relative z-1" id="map"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Map & Info End -->
+    <!-- Contact Form Start -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <p class="subtitle">
+                            <i class="fal fa-book"></i>
+                            Drop A Message
+                        </p>
+                        <h3 class="title">Have Any Questions Let’s Started Talk</h3>
+                    </div>
+                </div>
+            </div>
+            <form class="mf_form_validate" action="{% url 'core:contact' %}" method="post" >{% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group form_style">
+                            <label>Full Name</label>
+                            {{form.name}}
+                            <small class="text-danger">{{form.name.errors}}</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group form_style">
+                            <label>Email Address</label>
+                            {{form.email}}
+                            <small class="text-danger">{{form.email.errors}}</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group form_style">
+                            <label>Subject</label>
+                            {{form.subject}}
+                            <small class="text-danger">{{form.subject.errors}}</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group form_style">
+                            <label>Message</label>
+                            {{form.message}}
+                            <small class="text-danger">{{form.message.errors}}</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" class="thm-btn bg-thm-color-three thm-color-three-shadow btn-rectangle">Send Your Message <i class="fal fa-chevron-right ml-2"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Contact Form End -->
+
+{% endblock body %}

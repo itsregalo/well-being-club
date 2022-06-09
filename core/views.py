@@ -3,16 +3,15 @@ from django.urls import reverse, HttpResponseRedirect
 from .forms import ContactForm
 from django.core.mail import send_mail
 
-# Create your views here.
-
 def IndexView(request, *args, **kwargs):
     return render(request, 'index.html')
 
-def error_404(request, exception):
-    return render(request, '404.html')
+def AboutUsView(request, *args, **kwargs):
+    return render(request, 'about-us.html')
 
-def error_500(request):
-    return render(request, '500.html')
+def FAQView(request, *args, **kwargs):
+    return render(request, 'faq.html')
+
 
 def ContactView(request, *args, **kwargs):
     form = ContactForm()
@@ -31,3 +30,10 @@ def ContactView(request, *args, **kwargs):
     }
 
     return render(request, 'contact.html', context)
+
+def error_404(request, exception):
+    return render(request, '404.html')
+
+def error_500(request):
+    return render(request, '500.html')
+
