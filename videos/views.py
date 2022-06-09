@@ -3,5 +3,5 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def index(request):
-    return render(request, 'videos/index.html')
+def videos(request):
+    return render(request, 'videos/videos.html')
