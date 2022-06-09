@@ -45,8 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'core',
+    'blog',
+    'videos',
 
     'ckeditor',
+    'mptt',
+    'taggit',
 ]
 
 MIDDLEWARE = [
