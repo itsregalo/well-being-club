@@ -1,3 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ blog.title }} {% endblock title %}  
+
+{% block body %}
+
 
     <!-- Subheader Start -->
     <div class="subheader relative z-1" style="background-image: url(/static/assets/images/subheader.jpg);">
@@ -158,7 +165,7 @@
                     <ul class="comments mb-xl-30">
                         <li class="comment">
                             <div class="comment_img">
-                                <img src="assets/images/blog/comments/1.jpg" alt="img" class="image-fit">
+                                <img src="{% static 'assets/images/blog/comments/1.jpg' %}" alt="img" class="image-fit">
                             </div>
                             <div class="comment_text">
                                 <h6 class="mb-0">John F. Medina</h6>
@@ -169,7 +176,7 @@
                             <ul class="children">
                                 <li class="comment">
                                     <div class="comment_img">
-                                        <img src="assets/images/blog/comments/2.jpg" alt="img" class="image-fit">
+                                        <img src="{% static 'assets/images/blog/comments/2.jpg' %}" alt="img" class="image-fit">
                                     </div>
                                     <div class="comment_text">
                                         <h6 class="mb-0">Jeffrey T. Kelly</h6>
@@ -182,7 +189,7 @@
                         </li>
                         <li class="comment">
                             <div class="comment_img">
-                                <img src="assets/images/blog/comments/3.jpg" alt="img" class="image-fit">
+                                <img src="{% static 'assets/images/blog/comments/3.jpg' %}" alt="img" class="image-fit">
                             </div>
                             <div class="comment_text">
                                 <h6 class="mb-0">Richard B. Zellmer</h6>
@@ -323,3 +330,6 @@
         </div>
     </div>
     <!-- Section End -->
+
+
+{% endblock body %}
