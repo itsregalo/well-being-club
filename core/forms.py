@@ -10,5 +10,5 @@ class ContactForm(forms.ModelForm):
             'name': forms.TextInput(attrs={"class":"contact-name form-control", "id":"name", "type":"text", "placeholder":"First Name"}),
             'email': forms.TextInput(attrs={"class":"contact-email form-control", "id":"L_name", "type":"email", "placeholder":"Your Email"}),
             'subject': forms.TextInput(attrs={"class":"contact-name form-control", "id":"L_name", "type":"text", "placeholder":"Subject"}),
-            'message': forms.Textarea(attrs={"class":"contact-message", "id":"message", "rows":"6", "placeholder":"Your Message"}),
+            'message': forms.Textarea(attrs={"class":"form-control", "id":"message", "rows":"6", "placeholder":"Your Message"}),
         }

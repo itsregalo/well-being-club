@@ -6,4 +6,6 @@ app_name = 'core'
 urlpatterns = [
     path('', IndexView, name='index'),
     path('contact/', ContactView, name='contact'),
+    path('faq/', FAQView, name='faqs'),
+    path('about-us/', AboutUsView, name='about-us')
 ]

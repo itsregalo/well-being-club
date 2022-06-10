@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Login{% endblock title %}
+
+{% block body %}
+
+<div class="subheader relative z-1" style="background-image: url(/static/assets/images/subheader.jpg);">
+    <div class="container relative z-1">
+        <div class="row">
+            <div class="col-12">
+                <div class="page_breadcrumb">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">NEW POST</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <img src="{% static 'assets/images/elements/element_19.png' %}" alt="element" class="element_1 slideRightTwo">
+        <img src="{% static 'assets/images/elements/element_10.png' %}" alt="element" class="element_2 zoom-fade">
+        <img src="{% static 'assets/images/elements/element_20.png' %}" alt="element" class="element_3 rotate_elem">
+        <img src="{% static 'assets/images/elements/element_21.png' %}" alt="element" class="element_4 rotate_elem">
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-sm-12">
+                <div class="section-title">
+                    <h3 class="title">NEW POST</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form class="mf_form_validate" action="{% url 'accounts:register' %}" method="post" >{% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group form_style">
+                            <label>Title</label>
+                            {{form.title}}
+                            <small class="text-danger">{{form.title.errors}}</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group form_style">
+                            <label>Category</label>
+                            {{form.category}}
+                            <small class="text-danger">{{form.category.errors}}</small>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="form-group form_style">
+                            <label>Picture</label>
+                            {{form.pic}}
+                            <small class="text-danger">{{form.pic.errors}}</small>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="form-group form_style">
+                            <label>Content</label>
+                            {{form.content}}
+                            <small class="text-danger">{{form.content.errors}}</small>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="form-group form_style">
+                            <label>Tags</label>
+                            {{form.tags}}
+                            <small class="text-danger">{{form.tags.errors}}</small>
+                        </div>
+                    </div>
+
+                   
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" class="thm-btn bg-thm-color-three thm-color-three-shadow btn-rectangle">Post <i class="fal fa-chevron-right ml-2"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}
