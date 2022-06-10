@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Meme Zone{% endblock title %}
+
+{% block body %}
+
+
+    <!-- Subheader Start -->
+    <div class="subheader relative z-1" style="background-image: url(/static/assets/images/subheader.jpg);">
+        <div class="container relative z-1">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Portfolio Gallery</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <img src="{% static 'assets/images/elements/element_19.png' %}" alt="element" class="element_1 slideRightTwo">
+            <img src="{% static 'assets/images/elements/element_10.png' %}" alt="element" class="element_2 zoom-fade">
+            <img src="{% static 'assets/images/elements/element_20.png' %}" alt="element" class="element_3 rotate_elem">
+            <img src="{% static 'assets/images/elements/element_21.png' %}" alt="element" class="element_4 rotate_elem">
+        </div>
+    </div>
+    <!-- Subheader End -->
+    <!-- Section Start -->
+    <div class="section-padding isotope-filter-items">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="filter-btns mb-5">
+                        <ul>
+                            <li class="active filter-trigger" data-filter="*">
+                                <a href="#">All</a>
+                            </li>
+                            <li class="filter-trigger" data-filter=".lifestyle">
+                                <a href="#">Lifestyle</a>
+                            </li>
+                            <li class="filter-trigger" data-filter=".goals">
+                                <a href="#">Goals</a>
+                            </li>
+                            <li class="filter-trigger" data-filter=".fashion">
+                                <a href="#">Fashion</a>
+                            </li>
+                            <li class="filter-trigger" data-filter=".health">
+                                <a href="#">Health</a>
+                            </li>
+                            <li class="filter-trigger" data-filter=".business">
+                                <a href="#">Business</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row filteritems">
+                <!-- Portfolio Start -->
+                <div class="col-lg-4 col-md-6 masonry-item lifestyle business health">
+                    <div class="portfolio_box type_gallery">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/1.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <a href="portfolio-details.html" class="link">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+                <!-- Portfolio Start -->
+                <div class="col-lg-4 col-md-6 masonry-item goals lifestyle business">
+                    <div class="portfolio_box type_gallery">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/2.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <a href="portfolio-details.html" class="link">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+                <!-- Portfolio Start -->
+                <div class="col-lg-4 col-md-6 masonry-item fashion goals lifestyle">
+                    <div class="portfolio_box type_gallery">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/3.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <a href="portfolio-details.html" class="link">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+                <!-- Portfolio Start -->
+                <div class="col-lg-4 col-md-6 masonry-item health fashion goals">
+                    <div class="portfolio_box type_gallery">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/4.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <a href="portfolio-details.html" class="link">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+                <!-- Portfolio Start -->
+                <div class="col-lg-4 col-md-6 masonry-item business health fashion">
+                    <div class="portfolio_box type_gallery">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/5.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <a href="portfolio-details.html" class="link">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+                <!-- Portfolio Start -->
+                <div class="col-lg-4 col-md-6 masonry-item lifestyle business health">
+                    <div class="portfolio_box type_gallery">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/6.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <a href="portfolio-details.html" class="link">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+                <!-- Portfolio Start -->
+                <div class="col-lg-4 col-md-6 masonry-item goals lifestyle business">
+                    <div class="portfolio_box type_gallery">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/7.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <a href="portfolio-details.html" class="link">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+                <!-- Portfolio Start -->
+                <div class="col-lg-4 col-md-6 masonry-item fashion goals lifestyle">
+                    <div class="portfolio_box type_gallery">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/8.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <a href="portfolio-details.html" class="link">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+                <!-- Portfolio Start -->
+                <div class="col-lg-4 col-md-6 masonry-item health fashion goals">
+                    <div class="portfolio_box type_gallery">
+                        <div class="portfolio_img">
+                            <img src="{% static 'assets/images/portfolio/9.jpg' %}" class="image-fit" alt="img">
+                        </div>
+                        <a href="portfolio-details.html" class="link">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+            </div>
+        </div>
+    </div>
+    <!-- Section End -->
+
+{% endblock body %}
