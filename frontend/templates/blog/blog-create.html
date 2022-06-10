@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title %}Login{% endblock title %}
+{% block title %}New Post{% endblock title %}
 
 {% block body %}
 
@@ -38,7 +38,7 @@
         </div>
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
-            <form class="mf_form_validate" action="{% url 'accounts:register' %}" method="post" >{% csrf_token %}
+            <form class="mf_form_validate" action="{% url 'blog:blog-create' %}" method="POST" enctype="multipart/form-data" >{% csrf_token %}
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group form_style">

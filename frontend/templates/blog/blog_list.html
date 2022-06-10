@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block body %}
 
 
@@ -35,6 +36,7 @@
     <div class="section-padding">
         <div class="container">
             <div class="row">
+                {% for blog in blogs %}
                 <!-- post -->
                 <div class="col-xl-4 col-md-6">
                     <article class="post style_2">
@@ -63,6 +65,9 @@
                     </article>
                 </div>
                 <!-- post -->
+                
+                
+                {% endfor %}
             </div>
             <!-- Pagination -->
             <nav aria-label="Page navigation example">

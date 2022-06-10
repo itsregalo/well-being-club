@@ -1,6 +1,4 @@
 from django import forms
-from matplotlib import widgets
-
 from .models import Video, Category
 
 class VideoForm(forms.ModelForm):
