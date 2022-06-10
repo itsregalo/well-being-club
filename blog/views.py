@@ -77,7 +77,7 @@ def BlogCreateView(request, *args, **kwargs):
         form = BlogForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             new_blog = form.save(commit=False)
-            new_blog.uploaded_by = request.user.bloggeruser
+            new_blog.uploaded_by = request.user
             new_blog.save()
             messages.success(request, 'blog added successfully')
             return redirect('blog:blog-list')
