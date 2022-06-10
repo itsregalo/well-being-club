@@ -12,6 +12,8 @@ class BlogForm(forms.ModelForm):
         model = Blog
         exclude = ['uploaded_by','pub_date','view_count','slug','pic_thumbnail','view_count']
 
+        
+
 class CommentForm(forms.ModelForm):
     parent = TreeNodeChoiceField(queryset=BlogComment.objects.all())
 

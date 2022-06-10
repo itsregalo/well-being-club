@@ -69,9 +69,13 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 masonry-item health lifestyle fashion">
                     <div class="video_box">
                         <img src="{% static 'assets/images/video/4.jpg' %}" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">Free</span>
-                        </div>
+                        
+                        {% if video.user == request.user %}
+                            <div class="video_badges">
+                                <a href=""><span class="tag_badge bg-danger"><span class="fal fa-trash"></span></span></a>
+                            </div>
+                        {% endif %}
+                            
                         <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
                             <i class="fas fa-play"></i>
                         </a>
