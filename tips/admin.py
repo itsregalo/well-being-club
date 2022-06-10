@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog, BlogTags, BlogComment, Category
+from .models import Tip, TipTags, TipComment, Category
 from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin
 
 
@@ -10,7 +10,7 @@ class CommentsAdmin(DraggableMPTTAdmin):
         'tree_actions',
         'indented_title',)
 
-admin.site.register(Blog)
+admin.site.register(Tip)
 admin.site.register(Category)
-admin.site.register(BlogTags)
-admin.site.register(BlogComment, DraggableMPTTAdmin)
+admin.site.register(TipTags)
+admin.site.register(TipComment, DraggableMPTTAdmin)

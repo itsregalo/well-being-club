@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Posts {% endblock title %}
+
+
+{% block body %}
+
+
+
+    <!-- Subheader Start -->
+    <div class="subheader relative z-1" style="background-image: url(/static/assets/images/subheader.jpg);">
+        <div class="container relative z-1">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <img src="{% static 'assets/images/elements/element_19.png' %}" alt="element" class="element_1 slideRightTwo">
+            <img src="{% static 'assets/images/elements/element_10.png' %}" alt="element" class="element_2 zoom-fade">
+            <img src="{% static 'assets/images/elements/element_20.png' %}" alt="element" class="element_3 rotate_elem">
+            <img src="{% static 'assets/images/elements/element_21.png' %}" alt="element" class="element_4 rotate_elem">
+        </div>
+    </div>
+    <!-- Subheader End -->
+    <br>
+    <div class="col-lg-12 text-center">
+        <button type="submit" class="thm-btn bg-thm-color-three thm-color-three-shadow btn-rectangle"><a href="{% url 'blog:blog-create' %}">NEW POST</a> <i class="fal fa-plus ml-2"></i></button>
+    </div>
+    <!-- Section Start -->
+    <div class="section-padding">
+        <div class="container">
+            <div class="row">
+                {% for blog in blogs %}
+                <!-- post -->
+                    <div class="col-xl-4 col-md-6">
+                        <article class="post style_2">
+                            <div class="post_img">
+                                <img src="{{ blog.pic_thumbnail_small.url }}" alt="img" class="image-fit">
+                            </div>
+                            <div class="post_caption">
+                                <ul class="post_meta">
+                                    <li>
+                                        <i class="fal fa-calendar-alt"></i>
+                                        25 Mar 2021
+                                    </li>
+                                    <li>
+                                        <i class="fal fa-comment-lines"></i>
+                                        Comments (05)
+                                    </li>
+                                </ul>
+                                <h4 class="post_title">
+                                    <a href="{{blog.get_absolute_url}}">Smashing Podcast Episode Luca Mezzalira Front</a>
+                                </h4>
+                                <p class="post_text">
+                                    Quis autem vel eumiure reprehenderit quis volupta velit esse quam nihil molestiae conse quatur vel illum qui dolorem
+                                </p>
+                                <a href="{{blog.get_absolute_url}}" class="thm-btn bg-thm-color-white thm-color-one btn-rectangle">Read More <i class="fal fa-chevron-right ml-2"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                <!-- post -->
+                
+                
+                {% endfor %}
+            </div>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a href="#" class="page-link">
+                            <i class="fal fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">01</a>
+                    </li>
+                    <li class="page-item active">
+                        <a href="#" class="page-link">02</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">03</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">
+                            <i class="fal fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Pagination -->
+        </div>
+    </div>
+    <!-- Section End -->
+
+
+{% endblock body %}

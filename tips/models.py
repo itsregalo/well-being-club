@@ -32,16 +32,16 @@ class Category(models.Model):
             self.slug=slugify(self.name)
         return super(Category, self).save(*args, **kwargs)
     
-    def get_tag_blogs(self):
-        return Blog.objects.filter(category=self)
+    def get_tag_tips(self):
+        return Tip.objects.filter(category=self)
     
-class BlogTags(models.Model):
+class TipTags(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(blank=True)
 
     class Meta:
-        verbose_name='blog tag'
-        verbose_name_plural='blog tags'
+        verbose_name='tip tag'
+        verbose_name_plural='tip tags'
     
     def __str__(self):
         return self.name
@@ -49,16 +49,16 @@ class BlogTags(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug=slugify(self.name)
-        return super(BlogTags, self).save(*args, **kwargs)
+        return super(TipTags, self).save(*args, **kwargs)
     
-    def get_tag_blogs(self):
-        return Blog.objects.filter(tag=self)
+    def get_tag_tips(self):
+        return Tip.objects.filter(tag=self)
     
-class Blog(models.Model):
+class Tip(models.Model):
     title = models.CharField(max_length=255)
     uploaded_by = models.ForeignKey(User, on_delete=DO_NOTHING)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    pic = models.ImageField(upload_to="images/blog/%Y/%m/%d")
+    pic = models.ImageField(upload_to="images/tip/%Y/%m/%d")
     pic_thumbnail = ImageSpecField(source='pic',
                                    processors = [ResizeToFill(800,356)],
                                    format='JPEG',
@@ -80,8 +80,8 @@ class Blog(models.Model):
 
     class Meta:
         ordering = ['-pub_date']
-        verbose_name='blog'
-        verbose_name_plural='blogs'
+        verbose_name='tip'
+        verbose_name_plural='tips'
     
     def __str__(self):
         return f"{self.uploaded_by.username} - {self.title}"
@@ -89,21 +89,21 @@ class Blog(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)+"-"+str(self.pk)
-        return super(Blog,self).save(*args, **kwargs)
+        return super(Tip,self).save(*args, **kwargs)
     
-    def get_blog_tags(self):
+    def get_tip_tags(self):
         return self.tags.all()
 
-    def get_blog_comments(self):
-        return BlogComment.objects.filter(post=self)
+    def get_tip_comments(self):
+        return TipComment.objects.filter(post=self)
 
     def get_absolute_url(self):
-        return reverse("blog:blog-detail", kwargs={"slug":self.slug, "pk": self.pk})
+        return reverse("tip:tip-detail", kwargs={"slug":self.slug, "pk": self.pk})
     
     
-class BlogComment(MPTTModel):
+class TipComment(MPTTModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    post = models.ForeignKey(Tip, on_delete=models.CASCADE)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, 
@@ -114,8 +114,8 @@ class BlogComment(MPTTModel):
         order_insertion_by = ['timestamp']
 
     class Meta:
-        verbose_name='blog comment'
-        verbose_name_plural='blog comments'
+        verbose_name='tip comment'
+        verbose_name_plural='tip comments'
 
     def __str__(self):
         return f"{self.post.title} - {self.content}"
