@@ -22,7 +22,6 @@ class Video(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     date_added = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
-    tags = TaggableManager()
     
     def __str__(self):
         return self.title

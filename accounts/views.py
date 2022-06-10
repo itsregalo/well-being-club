@@ -12,7 +12,7 @@ from .utils import token_gen
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.auth import get_user_model
 
-from .forms import LoginForm
+from .forms import LoginForm, RegistrationForm
 User = get_user_model()
 
 """for threading function where a user 
@@ -35,8 +35,8 @@ def LogInView(request, *args, **kwargs):
     form = LoginForm()
     if request.method == 'POST':
         form = LoginForm(request.POST)
-        username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
     
         if form.is_valid():
             user = authenticate(username=username, password=password)
@@ -60,68 +60,76 @@ def LogOutView(request, *args, **kwargs):
     return redirect('core:index')
 
 def RegisterView(request):
+    form = RegistrationForm()
     if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        password1 = request.POST.get('password')
-        password2 = request.POST.get('password2')
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print(form.errors)
+            messages.success(request,"You successfully registered")
+            return redirect('accounts:login')
+    context = {
+        'form': form,
+    }
+    return render(request, 'auth/register.html', context)
+
+
+    #     username = request.POST.get('username')
+    #     email = request.POST.get('email')
+    #     password1 = request.POST.get('password')
+    #     password2 = request.POST.get('password2')
         
-        if username == "":
-            messages.error(request, "Username is required")
-        if email == "":
-            messages.error(request, "Email is required")
-        if phone == "":
-            messages.error(request, "phone is required")
-        if password1 == "":
-            messages.error(request, "Password is required")
-        if password2 == "":
-            messages.error(request, "Repeat Password is required")
-            return redirect('accounts:register')
+    #     if username == "":
+    #         messages.error(request, "Username is required")
+    #     if email == "":
+    #         messages.error(request, "Email is required")
+    #     if password1 == "":
+    #         messages.error(request, "Password is required")
+    #     if password2 == "":
+    #         messages.error(request, "Repeat Password is required")
+    #         return redirect('accounts:register')
         
-        if User.objects.filter(username=username).exists():
-            messages.error(request, "A user with the username exists")
-        if User.objects.filter(phone_no=phone).exists():
-            messages.error(request, "The Phone Number has already been taken")
-        if User.objects.filter(email=email).exists():
-            messages.error(request, "The Email has already been taken")
-            return redirect('accounts:register')
+    #     if User.objects.filter(username=username).exists():
+    #         messages.error(request, "A user with the username exists")
+    #     if User.objects.filter(email=email).exists():
+    #         messages.error(request, "The Email has already been taken")
+    #         return redirect('accounts:register')
 
         
-        if password1 != password2:
-            messages.error(request, "Passwords do not match")
-        if len(password1)<6:
-            messages.error(request,"Password is too short")
-            return redirect('accounts:register') 
+    #     if password1 != password2:
+    #         messages.error(request, "Passwords do not match")
+    #     if len(password1)<6:
+    #         messages.error(request,"Password is too short")
+    #         return redirect('accounts:register') 
             
                 
-        else:
-            user = User.objects.create_user(username=username, 
-                                            email=email,
-                                            phone_no=phone
-            )
-            user.set_password(password1)
-            user.is_active=False
-            user.save()
+    #     else:
+    #         user = User.objects.create_user(username=username, 
+    #                                         email=email
+    #         )
+    #         user.set_password(password1)
+    #         user.is_active=False
+    #         user.save()
             
-            uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
-            domain = get_current_site(request).domain #gives us the domain
-            link = reverse('accounts:activate', 
-                            kwargs={
-                                'uidb64':uidb64, 
-                                'token':token_gen.make_token(user)
-                                    })
-            activate_url = f"http://{domain+link}"
+    #         uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
+    #         domain = get_current_site(request).domain #gives us the domain
+    #         link = reverse('accounts:activate', 
+    #                         kwargs={
+    #                             'uidb64':uidb64, 
+    #                             'token':token_gen.make_token(user)
+    #                                 })
+    #         activate_url = f"http://{domain+link}"
             
-            mail_subject = "Activate your account"
+    #         mail_subject = "Activate your account"
 
             
-            mail_body = f"hi {user.username} click the link below to verify your account\n {activate_url}"
-            mail = send_mail (mail_subject, mail_body,'noreply@courses.com',[email], fail_silently=False)
-            messages.success(request, "Account created, Check your email to activate your account")
-            return redirect('accounts:login')
+    #         mail_body = f"hi {user.username} click the link below to verify your account\n {activate_url}"
+    #         mail = send_mail (mail_subject, mail_body,'noreply@courses.com',[email], fail_silently=False)
+    #         messages.success(request, "Account created, Check your email to activate your account")
+    #         return redirect('accounts:login')
             
-    return render(request, 'auth/register.html', {})
+    # return render(request, 'auth/register.html', {})
+
 
 def VerificationView(request,uidb64, token):
 

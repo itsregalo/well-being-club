@@ -12,6 +12,14 @@ class BlogForm(forms.ModelForm):
         model = Blog
         exclude = ['uploaded_by','pub_date','view_count','slug','pic_thumbnail','view_count']
 
+        widgets = {
+            'title': forms.TextInput(attrs={'class':'form-control'}),
+            'category': forms.Select(attrs={'class':'form-control mb-2'}),
+            'content': forms.TextInput(attrs={'class':'form-control'}),
+            'tags': forms.TextInput(attrs={'class':'form-control'}),
+            'pic': forms.FileInput(attrs={'class':'form-control'}),
+        }
+
         
 
 class CommentForm(forms.ModelForm):

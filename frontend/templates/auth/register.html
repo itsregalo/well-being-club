@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title %}Login{% endblock title %}
+{% block title %}Register{% endblock title %}
 
 {% block body %}
 
@@ -14,7 +14,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Login</li>
+                            <li class="breadcrumb-item active" aria-current="page">Register</li>
                         </ol>
                     </nav>
                 </div>
@@ -38,13 +38,20 @@
         </div>
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
-            <form class="mf_form_validate" action="{% url 'accounts:register' %}" method="post" >{% csrf_token %}
+            <form class="mf_form_validate" action="{% url 'accounts:register' %}" method="POST" >{% csrf_token %}
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group form_style">
                             <label>Username</label>
                             {{form.username}}
                             <small class="text-danger">{{form.username.errors}}</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group form_style">
+                            <label>Email</label>
+                            {{form.email}}
+                            <small class="text-danger">{{form.email.errors}}</small>
                         </div>
                     </div>
                     <div class="col-lg-12">
@@ -58,8 +65,8 @@
                     <div class="col-lg-12">
                         <div class="form-group form_style">
                             <label>Repeat Password</label>
-                            {{form.password}}
-                            <small class="text-danger">{{form.password.errors}}</small>
+                            {{form.confirm_password}}
+                            <small class="text-danger">{{form.confirm_password.errors}}</small>
                         </div>
                     </div>
 
