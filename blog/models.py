@@ -64,7 +64,7 @@ class Blog(models.Model):
                                    format='JPEG',
                                    options = {'quality':100})
     pic_thumbnail_small = ImageSpecField(source='pic',
-                                   processors = [ResizeToFill(150,150)],
+                                   processors = [ResizeToFill(415,275)],
                                    format='JPEG',
                                    options = {'quality':50})
     pic_thumbnail_latest = ImageSpecField(source='pic',

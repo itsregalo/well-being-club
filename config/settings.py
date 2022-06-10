@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'core',
     'blog',
     'videos',
-    'courses',
+    'memes',
+    'tips',
 
     'ckeditor',
     'mptt',

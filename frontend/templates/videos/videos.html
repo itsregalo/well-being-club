@@ -39,21 +39,14 @@
                             <li class="active filter-trigger" data-filter="*">
                                 <a href="#">All</a>
                             </li>
-                            <li class="filter-trigger" data-filter=".lifestyle">
-                                <a href="#">Lifestyle</a>
+                           {% for category in categories %}
+                           
+                           <li class="filter-trigger" data-filter=".{{category.slug}}">
+                                <a href="#">{{category.slug}}</a>
                             </li>
-                            <li class="filter-trigger" data-filter=".goals">
-                                <a href="#">Goals</a>
-                            </li>
-                            <li class="filter-trigger" data-filter=".fashion">
-                                <a href="#">Fashion</a>
-                            </li>
-                            <li class="filter-trigger" data-filter=".health">
-                                <a href="#">Health</a>
-                            </li>
-                            <li class="filter-trigger" data-filter=".business">
-                                <a href="#">Business</a>
-                            </li>
+                           
+                           {% endfor %}
+                           
                         </ul>
                     </div>
                 </div>
@@ -66,76 +59,31 @@
             
             <div class="row filteritems">
                 <!-- Box Start -->
-                <div class="col-xl-3 col-lg-4 col-md-6 masonry-item health lifestyle fashion">
-                    <div class="video_box">
-                        <img src="{% static 'assets/images/video/4.jpg' %}" alt="img" class="image-fit">
-                        
-                        {% if video.user == request.user %}
-                            <div class="video_badges">
-                                <a href=""><span class="tag_badge bg-danger"><span class="fal fa-trash"></span></span></a>
+                
+                    {% for video in videos %}
+                    
+                        <div class="col-xl-3 col-lg-4 col-md-6 masonry-item health lifestyle fashion">
+                            <div class="video_box">
+                                <img src="{% static 'assets/images/video/4.jpg' %}" alt="img" class="image-fit">
+                                
+                                {% if video.user == request.user %}
+                                    <div class="video_badges">
+                                        <a href=""><span class="tag_badge bg-danger"><span class="fal fa-trash"></span></span></a>
+                                    </div>
+                                {% endif %}
+                                    
+                                <a href="https://www.youtube.com/watch?v=aO1ggP7hnT4" class="popup-youtube video_btn">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video_text">
+                                    <h6 class="text-white mb-0">{{ video.title }}</h6>
+                                    <p class="mb-0 thm-color-light">By {{video.user}}</p>
+                                </div>
                             </div>
-                        {% endif %}
-                            
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">How To Gain Knowledge</h6>
-                            <p class="mb-0 thm-color-light">By Frank L. Pierce</p>
                         </div>
-                    </div>
-                </div>
-                <!-- Box End -->
-                <!-- Box Start -->
-                <div class="col-xl-3 col-lg-4 col-md-6 masonry-item business goals health">
-                    <div class="video_box">
-                        <img src="{% static 'assets/images/video/5.jpg' %}" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">$59</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">How To Fit Your Health</h6>
-                            <p class="mb-0 thm-color-light">By Janine T. Hostetter</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Box End -->
-                <!-- Box Start -->
-                <div class="col-xl-3 col-lg-4 col-md-6 masonry-item lifestyle fashion business">
-                    <div class="video_box">
-                        <img src="{% static 'assets/images/video/6.jpg' %}" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">Free</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">How To Gain Knowledge</h6>
-                            <p class="mb-0 thm-color-light">By Frank L. Pierce</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Box End -->
-                <!-- Box Start -->
-                <div class="col-xl-3 col-lg-4 col-md-6 masonry-item goals health lifestyle">
-                    <div class="video_box">
-                        <img src="{% static 'assets/images/video/7.jpg' %}" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">$59</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">Investment Planning</h6>
-                            <p class="mb-0 thm-color-light">By Janine T. Hostetter</p>
-                        </div>
-                    </div>
-                </div>
+                    
+                    {% endfor %}
+
                 <!-- Box End -->
             </div>
             
@@ -169,13 +117,13 @@
                 <label for="title">Link</label>
                 {{ form.youtube_link }}
             </div>
-           
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+       
       </div>
     </div>
   </div>

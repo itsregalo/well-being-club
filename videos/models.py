@@ -5,10 +5,10 @@ from taggit.managers import TaggableManager
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
 
     def save(self, *args, **kwargs):
-        self.slug = self.name.lower().replace(' ', '-')
+        self.slug = self.name.lower().replace(' ', '-')+'-'+str(self.id)
         super(Category, self).save(*args, **kwargs)
 
     def __str__(self):
