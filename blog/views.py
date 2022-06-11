@@ -23,13 +23,11 @@ def BlogListView(request, *args, **kwargs):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
-    #to do recent posts
-    
     context = {
         'blogs':page_obj,
-        'latest_blog':Blog.objects.order_by('-pub_date')[:5],
+        'latest_blog':Blog.objects.order_by('-pub_date')[:4],
         'popular_blog':Blog.objects.all().order_by('view_count')[:3],
-        'categories':categories,
+        'categories':categories
     }
     return render(request, 'blog/blog_list.html', context)
 
@@ -52,7 +50,7 @@ def BlogDetailView(request, slug, *args, **kwargs):
                 new_comment.user = request.user
                 new_comment.post = blog
                 new_comment.save()
-                return JsonResponse({"comment":model_to_dict(new_comment)})
+                return HttpResponseRedirect(reverse('blog:blog-detail', kwargs={'pk':blog.pk, 'slug':blog.slug}))
             messages.error(request,'Oops! please try again')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         messages.error(request,'Oops! please login to comment')
@@ -65,7 +63,7 @@ def BlogDetailView(request, slug, *args, **kwargs):
         'comment_form':comment_form,
         'related_posts':related_posts,
         'blogs_by_author':blogs_by_author,
-        'categories':categories,
+        'categories':categories
     }
 
     return render(request, 'blog/blog_detail.html', context)

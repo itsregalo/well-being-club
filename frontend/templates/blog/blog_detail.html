@@ -37,45 +37,35 @@
                     <!-- post details -->
                     <article class="post post_list style_2 post_details mb-0">
                         <div class="post_img">
-                            <img src="{% static 'assets/images/blog/list/1.jpg' %}" alt="img" class="image-fit">
+                            <img src="{{ blog.pic_thumbnail.url }}" alt="img" class="image-fit">
                         </div>
                         <div class="post_caption">
                             <ul class="post_meta">
                                 <li>
                                     <i class="fal fa-user"></i>
-                                    Nichel Jhon
+                                   {{blog.uploaded_by.username}}
                                 </li>
                                 <li>
                                     <i class="fal fa-calendar-alt"></i>
-                                    25 Mar 2021
+                                    {{blog.pub_date | date:"d M Y"}}
                                 </li>
                                 <li>
                                     <i class="fal fa-comment-lines"></i>
-                                    Comments (05)
+                                    Comments ({{ blog.get_blog_comments.count }})
                                 </li>
                             </ul>
                             <h4 class="post_title">
-                                <a href="blog-details.html">Writing Multiplayer Text Adventure Engine In Node Game Engine Server Design Optimizing For Mobile</a>
+                                <a href="blog-details.html">{{ blog.title }}</a>
                             </h4>
-                            <p>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quiaesy voluptas aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatu
-                            </p>
-                            <blockquote>
-                                <h4 class="quote_title">Smashing Podcast Episode With Paul Boag What Is Conversion Optimization Inspired Design Decisions</h4>
-                                <cite class="quote_author">Bailey Dobson</cite>
-                            </blockquote>
-                            <h5>Ensure Your Design System Helps To Achieve Purpose </h5>
-                            <p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+
+                            <p>{{ blog.content |safe }}</p>
                         </div>
                         <!-- Post Tags & Share Start -->
                         <div class="post_tags_share">
                             <div class="post_tags">
-                                <h6>Popular Tags: </h6>
+                                <h6>Category: </h6>
                                 <div class="tags">
-                                    <a href="blog-grid.html">Cleaning</a>
-                                    <a href="blog-grid.html">House</a>
-                                    <a href="blog-grid.html">Office</a>
-                                    <a href="blog-grid.html">Kitchen</a>
+                                    <a href="{{ category.get_absolute_url }}">{{blog.category.name}}</a>
                                 </div>
                             </div>
                             <div class="post_share">
@@ -105,37 +95,6 @@
                             </div>
                         </div>
                         <!-- Post Tags & Share End -->
-                        <!-- Post Author Start -->
-                        <div class="post_author">
-                            <img src="{% static 'assets/images/blog/author.jpg' %}" alt="img" class="image-fit">
-                            <div class="text">
-                                <h5 class="mb-2">Nathan George</h5>
-                                <p class="mb-2">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatu vel illum qui dolorem eum fugiat quo voluptas nulla pariano one rejects, dislikes, or avoids pleasure itself, because</p>
-                                <ul class="social">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-behance"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Post Author End -->
                         <!-- Post Navigation Start -->
                         <ul class="post_navigation">
                             <li>
@@ -162,66 +121,29 @@
                         <!-- Post Navigation End -->
                     </article>
                     <!-- Post Comments Start -->
-                    <h4>People Comments</h4>
+                    <h4>Comments</h4>
                     <ul class="comments mb-xl-30">
-                        <li class="comment">
-                            <div class="comment_img">
-                                <img src="{% static 'assets/images/blog/comments/1.jpg' %}" alt="img" class="image-fit">
-                            </div>
-                            <div class="comment_text">
-                                <h6 class="mb-0">John F. Medina</h6>
-                                <p class="comment_date">25 May 2021</p>
-                                <p class="mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae </p>
-                                <a href="#" class="comment_link">Reply <i class="fal fa-long-arrow-right ml-2"></i></a>
-                            </div>
-                            <ul class="children">
-                                <li class="comment">
-                                    <div class="comment_img">
-                                        <img src="{% static 'assets/images/blog/comments/2.jpg' %}" alt="img" class="image-fit">
-                                    </div>
-                                    <div class="comment_text">
-                                        <h6 class="mb-0">Jeffrey T. Kelly</h6>
-                                        <p class="comment_date">25 May 2021</p>
-                                        <p class="mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae </p>
-                                        <a href="#" class="comment_link">Reply <i class="fal fa-long-arrow-right ml-2"></i></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="comment">
-                            <div class="comment_img">
-                                <img src="{% static 'assets/images/blog/comments/3.jpg' %}" alt="img" class="image-fit">
-                            </div>
-                            <div class="comment_text">
-                                <h6 class="mb-0">Richard B. Zellmer</h6>
-                                <p class="comment_date">25 May 2021</p>
-                                <p class="mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae </p>
-                                <a href="#" class="comment_link">Reply <i class="fal fa-long-arrow-right ml-2"></i></a>
-                            </div>
-                        </li>
+                        {% for comment in blog_comments %}
+                            <li class="comment col-6">
+                                <div class="comment_text">
+                                    <h6 class="mb-0">{{ comment.user.username }}</h6>
+                                    <p class="comment_date">{{ comment.pub_date | date:'d M Y' }}</p>
+                                    <p class="mb-0">{{ comment.content }} </p>
+                                
+                                </div>
+                            </li>
+                        {% endfor %}
                     </ul>
                     <!-- Post Comments End -->
                     <!-- Comment Form Start -->
                     <div class="comment_form">
-                        <h4>Leave A Reply</h4>
-                        <form>
+                        <h4>Leave A Comment</h4>
+                        <form action="" method="POST">{% csrf_token %}
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="#" placeholder="Your Full Name" class="form-control form-control-custom style_2" autocomplete="off">
-                                        <i class="fal fa-user"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="email" name="#" placeholder="Your Email" class="form-control form-control-custom style_2" autocomplete="off">
-                                        <i class="fal fa-envelope"></i>
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea rows="5" name="#" placeholder="Write Message" class="form-control form-control-custom style_2" autocomplete="off"></textarea>
-                                        <i class="fal fa-pen"></i>
+                                        {{comment_form.content}}
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -233,6 +155,8 @@
                     <!-- Comment Form End -->
                     <!-- post details -->
                 </div>
+
+
                 <div class="col-lg-4">
                     <div class="sidebar style_2">
                         <div class="sidebar_widget">
@@ -250,24 +174,15 @@
                         <div class="sidebar_widget">
                             <h5 class="widget_title">Category</h5>
                             <ul class="category_widgets">
-                                <li>
-                                    <a href="blog-grid.html">Life Courses</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Business Courses</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Advance Wordpress</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Basic HTML Coach</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Health Courses</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">English Learning</a>
-                                </li>
+                                
+                                
+                                {% for category in categories %}
+                                    <li>
+                                        <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                                    </li>
+                                {% endfor %}
+                                    
+                                
                             </ul>
                         </div>
                         <div class="sidebar_widget recent_widgets">
@@ -304,27 +219,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="sidebar_widget">
-                            <a href="#" class="d-block">
-                                <img src="{% static 'assets/images/blog/adv.jpg' %}" alt="adv" class="image-fit">
-                            </a>
-                        </div>
-                        <div class="sidebar_widget">
-                            <h5 class="widget_title">Popular Tags</h5>
-                            <div class="tags">
-                                <a href="blog-grid.html">Business</a>
-                                <a href="blog-grid.html">Corporate</a>
-                                <a href="blog-grid.html">HTML</a>
-                                <a href="blog-grid.html">Art</a>
-                                <a href="blog-grid.html">Finance</a>
-                                <a href="blog-grid.html">Investment</a>
-                                <a href="blog-grid.html">CSS</a>
-                                <a href="blog-grid.html">Coach</a>
-                                <a href="blog-grid.html">Planing</a>
-                                <a href="blog-grid.html">Creative</a>
-                                <a href="blog-grid.html">Health</a>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

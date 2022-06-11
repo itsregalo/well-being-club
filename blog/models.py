@@ -60,7 +60,7 @@ class Blog(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     pic = models.ImageField(upload_to="images/blog/%Y/%m/%d")
     pic_thumbnail = ImageSpecField(source='pic',
-                                   processors = [ResizeToFill(800,356)],
+                                   processors = [ResizeToFill(856,500)],
                                    format='JPEG',
                                    options = {'quality':100})
     pic_thumbnail_small = ImageSpecField(source='pic',

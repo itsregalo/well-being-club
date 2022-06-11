@@ -16,7 +16,7 @@
                     <div class="page_breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'core:index' %}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Blog</li>
                             </ol>
                         </nav>
@@ -49,26 +49,24 @@
                                 <ul class="post_meta">
                                     <li>
                                         <i class="fal fa-calendar-alt"></i>
-                                        25 Mar 2021
+                                        {{blog.pub_date | date:"d M Y"}}
                                     </li>
                                     <li>
                                         <i class="fal fa-comment-lines"></i>
-                                        Comments (05)
+                                        Comments ({{ blog.get_blog_comments.count }})
                                     </li>
                                 </ul>
                                 <h4 class="post_title">
-                                    <a href="{{blog.get_absolute_url}}">Smashing Podcast Episode Luca Mezzalira Front</a>
+                                    <a href="{{blog.get_absolute_url}}">{{ blog.title }}</a>
                                 </h4>
                                 <p class="post_text">
-                                    Quis autem vel eumiure reprehenderit quis volupta velit esse quam nihil molestiae conse quatur vel illum qui dolorem
+                                    {{ blog.content | truncatechars:100 | safe }}
                                 </p>
                                 <a href="{{blog.get_absolute_url}}" class="thm-btn bg-thm-color-white thm-color-one btn-rectangle">Read More <i class="fal fa-chevron-right ml-2"></i></a>
                             </div>
                         </article>
                     </div>
                 <!-- post -->
-                
-                
                 {% endfor %}
             </div>
             <!-- Pagination -->
