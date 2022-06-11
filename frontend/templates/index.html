@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="image_box relative">
-                            <img src="{% static 'assets/images/banner/banner_img.png' %}" alt="img" class="image-fit">
+                            <img src="{% static 'assets/images/index/health-living.jpg' %}" alt="img" class="image-fit">
                             <span class="bg-thm-color-three circle_element"></span>
                         </div>
                     </div>
@@ -46,11 +46,8 @@
                 <!-- Feature Box Start -->
                 <div class="col-lg-3 col-md-6">
                     <div class="features_box">
-                        <div class="icon">
-                            <img src="{% static 'assets/images/icons/icon_1.png' %}" alt="img">
-                        </div>
                         <h5>Health Tips</h5>
-                        <p>We give health tips to our users</p>
+                        <p>Get health tips from our very able team to kepp you fit</p>
                         <a href="{% url 'tips:tip-list' %}">
                             <span>Read More</span>
                             <i class="fal fa-chevron-right"></i>
@@ -61,12 +58,9 @@
                 <!-- Feature Box Start -->
                 <div class="col-lg-3 col-md-6">
                     <div class="features_box">
-                        <div class="icon">
-                            <img src="{% static 'assets/images/icons/icon_2.png' %}" alt="img">
-                        </div>
-                        <h5>Creative Minds</h5>
-                        <p>Quis autem vel eum reprehenderit quin eavoluptate</p>
-                        <a href="services.html">
+                        <h5>Health Stories</h5>
+                        <p>Get and share health journeys from different users</p>
+                        <a href="{% url 'blog:blog-list' %}">
                             <span>Read More</span>
                             <i class="fal fa-chevron-right"></i>
                         </a>
@@ -76,12 +70,9 @@
                 <!-- Feature Box Start -->
                 <div class="col-lg-3 col-md-6">
                     <div class="features_box">
-                        <div class="icon">
-                            <img src="{% static 'assets/images/icons/icon_3.png' %}" alt="img">
-                        </div>
-                        <h5>Video Tutorials</h5>
-                        <p>Quis autem vel eum reprehenderit quin eavoluptate</p>
-                        <a href="services.html">
+                        <h5>Videos</h5>
+                        <p>Not only health video tutorials but also for fun</p>
+                        <a href="{% url 'videos:videos' %}">
                             <span>Read More</span>
                             <i class="fal fa-chevron-right"></i>
                         </a>
@@ -91,12 +82,9 @@
                 <!-- Feature Box Start -->
                 <div class="col-lg-3 col-md-6">
                     <div class="features_box">
-                        <div class="icon">
-                            <img src="{% static 'assets/images/icons/icon_4.png' %}" alt="img">
-                        </div>
-                        <h5>Worlds Record</h5>
-                        <p>Quis autem vel eum reprehenderit quin eavoluptate</p>
-                        <a href="services.html">
+                        <h5>Memes</h5>
+                        <p>We ain't complete without some litle fun</p>
+                        <a href="{% url 'memes:memes' %}">
                             <span>Read More</span>
                             <i class="fal fa-chevron-right"></i>
                         </a>
@@ -118,133 +106,33 @@
                             <i class="fal fa-book"></i>
                             Latest video gallery
                         </p>
-                        <h3 class="title">Watch some health videos</h3>
+                        <h3 class="title">Latest Health Videos</h3>
                     </div>
                 </div>
             </div>
            
+        
             <div class="row filteritems">
-                <!-- Box Start -->
-                <div class="col-lg-4 col-md-6 masonry-item lifestyle fashion business">
-                    <div class="video_box">
-                        <img src="assets/images/video/1.jpg" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">Free</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">How To Gain Knowledge</h6>
-                            <p class="mb-0 thm-color-light">By Frank L. Pierce</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Box End -->
-                <!-- Box Start -->
-                <div class="col-lg-4 col-md-6 masonry-item goals health lifestyle">
-                    <div class="video_box">
-                        <img src="assets/images/video/2.jpg" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">$59</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">Bring About Maintenance Home</h6>
-                            <p class="mb-0 thm-color-light">By Janine T. Hostetter</p>
+                {% for video in latest_videos %}
+                    <!-- Box Start -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 masonry-item health lifestyle fashion">
+                        <div class="video_box">
+                        
+                            <div class="video_badges">
+                                <span class="tag_badge bg-thm-color-four">Free</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
+                                <i class="fas fa-play"></i>
+                            </a>
+                            <div class="video_text">
+                                <h6 class="text-white mb-0">How To Gain Knowledge</h6>
+                                <p class="mb-0 thm-color-light">By Frank L. Pierce</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Box End -->
-                <!-- Box Start -->
-                <div class="col-lg-4 col-md-6 masonry-item fashion business goals">
-                    <div class="video_box">
-                        <img src="assets/images/video/3.jpg" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">$59</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">How To Growth Your Business</h6>
-                            <p class="mb-0 thm-color-light">By Joan J. Young</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Box End -->
-            </div>
-            <div class="row filteritems">
-                <!-- Box Start -->
-                <div class="col-xl-3 col-lg-4 col-md-6 masonry-item health lifestyle fashion">
-                    <div class="video_box">
-                        <img src="assets/images/video/4.jpg" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">Free</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">How To Gain Knowledge</h6>
-                            <p class="mb-0 thm-color-light">By Frank L. Pierce</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Box End -->
-                <!-- Box Start -->
-                <div class="col-xl-3 col-lg-4 col-md-6 masonry-item business goals health">
-                    <div class="video_box">
-                        <img src="assets/images/video/5.jpg" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">$59</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">How To Fit Your Health</h6>
-                            <p class="mb-0 thm-color-light">By Janine T. Hostetter</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Box End -->
-                <!-- Box Start -->
-                <div class="col-xl-3 col-lg-4 col-md-6 masonry-item lifestyle fashion business">
-                    <div class="video_box">
-                        <img src="assets/images/video/6.jpg" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">Free</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">How To Gain Knowledge</h6>
-                            <p class="mb-0 thm-color-light">By Frank L. Pierce</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Box End -->
-                <!-- Box Start -->
-                <div class="col-xl-3 col-lg-4 col-md-6 masonry-item goals health lifestyle">
-                    <div class="video_box">
-                        <img src="assets/images/video/7.jpg" alt="img" class="image-fit">
-                        <div class="video_badges">
-                            <span class="tag_badge bg-thm-color-four">$59</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="popup-youtube video_btn">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <div class="video_text">
-                            <h6 class="text-white mb-0">Investment Planning</h6>
-                            <p class="mb-0 thm-color-light">By Janine T. Hostetter</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Box End -->
+                    <!-- Box End -->
+                {% endfor %}
+                
             </div>
         </div>
     </section>
@@ -258,158 +146,101 @@
                     <div class="section-title">
                         <p class="subtitle">
                             <i class="fal fa-book"></i>
-                            Popular Coach
+                            Latest Tips
                         </p>
-                        <h3 class="title">We Provide Professional Life Coachs</h3>
+                        <h3 class="title">Latest Health Tips</h3>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <!-- Coach block -->
-                <div class="col-xl-4 col-md-6">
-                    <div class="coach_block">
-                        <div class="coach_img">
-                            <img src="{% static 'assets/images/coach/1.jpg' %}" alt="img" class="image-fit">
-                            <div class="coach_badges">
-                                <span class="tag_badge bg-thm-color-four">Free</span>
+                
+                {% for tip in latest_tips %}
+
+                    <!-- Coach block -->
+                    <div class="col-xl-4 col-md-6">
+                        <article class="post style_2">
+                            <div class="post_caption">
+                                <ul class="post_meta">
+                                    <li>
+                                        <i class="fal fa-calendar-alt"></i>
+                                        {{ tip.pub_date | date:"d M Y" }}
+                                    </li>
+                                    <li>
+                                        <i class="fal fa-comment-lines"></i>
+                                        Comments ({{tip.get_tip_comments.count}})
+                                    </li>
+                                </ul>
+                                <h4 class="post_title">
+                                    <a href="{{blog.get_absolute_url}}">{{ tip.title }}</a>
+                                </h4>
+                                <p class="post_text">
+                                    {{ tip.content | truncatechars:200 | safe }}
+                                </p>
+                                <a href="{{tip.get_absolute_url}}" class="thm-btn bg-thm-color-white thm-color-one btn-rectangle">Read More <i class="fal fa-chevron-right ml-2"></i></a>
                             </div>
-                            <a href="course-details.html" class="thm-btn thm-color-two bg-thm-color-white thm-color-two-shadow btn-circle link">
-                                <i class="fal fa-chevron-right"></i>
-                            </a>
-                        </div>
-                        <div class="coach_caption">
-                            <div class="coach_meta">
-                                <a href="courses.html" class="coach_cat thm-btn bg-thm-color-three thm-color-three-shadow btn-rounded">Business</a>
-                                <div class="ratings">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                </div>
-                            </div>
-                            <h5 class="title mb-xl-20">
-                                <a href="course-details.html">
-                                    Most Powerful Thing You Have Self Coaching Scholars
-                                </a>
-                            </h5>
-                            <div class="author">
-                                <img src="{% static 'assets/images/author/1.jpg' %}" alt="img" class="image-fit">
-                                <a href="courses.html" class="thm-color-one">Wilbert A. Toney</a>
-                            </div>
-                        </div>
+                        </article>
                     </div>
-                </div>
-                <!-- Coach block -->
-                <!-- Coach block -->
-                <div class="col-xl-4 col-md-6">
-                    <div class="coach_block">
-                        <div class="coach_img">
-                            <img src="{% static 'assets/images/coach/2.jpg' %}" alt="img" class="image-fit">
-                            <div class="coach_badges">
-                                <span class="tag_badge bg-thm-color-four">$50</span>
-                            </div>
-                            <a href="course-details.html" class="thm-btn thm-color-two bg-thm-color-white thm-color-two-shadow btn-circle link">
-                                <i class="fal fa-chevron-right"></i>
-                            </a>
-                        </div>
-                        <div class="coach_caption">
-                            <div class="coach_meta">
-                                <a href="courses.html" class="coach_cat thm-btn bg-thm-color-three thm-color-three-shadow btn-rounded">Lifestyle</a>
-                                <div class="ratings">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                </div>
-                            </div>
-                            <h5 class="title mb-xl-20">
-                                <a href="course-details.html">
-                                    Coach Certification Programs Most Powerful Coach
-                                </a>
-                            </h5>
-                            <div class="author">
-                                <img src="{% static 'assets/images/author/2.jpg' %}" alt="img" class="image-fit">
-                                <a href="courses.html" class="thm-color-one">Emma H. Parish</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Coach block -->
-                <!-- Coach block -->
-                <div class="col-xl-4 col-md-6">
-                    <div class="coach_block">
-                        <div class="coach_img">
-                            <img src="{% static 'assets/images/coach/3.jpg' %}" alt="img" class="image-fit">
-                            <div class="coach_badges">
-                                <span class="tag_badge bg-thm-color-four">Free</span>
-                            </div>
-                            <a href="course-details.html" class="thm-btn thm-color-two bg-thm-color-white thm-color-two-shadow btn-circle link">
-                                <i class="fal fa-chevron-right"></i>
-                            </a>
-                        </div>
-                        <div class="coach_caption">
-                            <div class="coach_meta">
-                                <a href="courses.html" class="coach_cat thm-btn bg-thm-color-three thm-color-three-shadow btn-rounded">Business</a>
-                                <div class="ratings">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                </div>
-                            </div>
-                            <h5 class="title mb-xl-20">
-                                <a href="course-details.html">
-                                    Matter How Great Your Life Al Ready, We’ll Give Syatem
-                                </a>
-                            </h5>
-                            <div class="author">
-                                <img src="{% static 'assets/images/author/3.jpg' %}" alt="img" class="image-fit">
-                                <a href="courses.html" class="thm-color-one">Junior N. West</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Coach block -->
+                    <!-- Coach block -->
+                
+                
+                {% endfor %}
+                
             </div>
         </div>
     </section>
     <!-- Coach Grid End -->
-    <!-- Sponsors Start -->
-    <div class="section-padding pt-0">
+
+    <!-- Coach Grid Start -->
+    <section class="section-padding pt-0">
         <div class="container">
-            <div class="row justify-content-around">
-                <div class="col-auto">
-                    <div class="sponsors_img">
-                        <img src="{% static 'assets/images/sponsors/1.png' %}" alt="img">
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="sponsors_img">
-                        <img src="{% static 'assets/images/sponsors/2.png' %}" alt="img">
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="sponsors_img">
-                        <img src="{% static 'assets/images/sponsors/3.png' %}" alt="img">
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="sponsors_img">
-                        <img src="{% static 'assets/images/sponsors/4.png' %}" alt="img">
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="sponsors_img">
-                        <img src="{% static 'assets/images/sponsors/5.png' %}" alt="img">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <p class="subtitle">
+                            <i class="fal fa-book"></i>
+                            Latest Posts
+                        </p>
+                        <h3 class="title">Latest Posts</h3>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                
+                {% for blog in latest_blogs %}
+
+                    <!-- Coach block -->
+                    <div class="col-xl-4 col-md-6">
+                        <article class="post style_2">
+                            <div class="post_caption">
+                                <ul class="post_meta">
+                                    <li>
+                                        <i class="fal fa-calendar-alt"></i>
+                                        {{ blog.pub_date | date:"d M Y" }}
+                                    </li>
+                                    <li>
+                                        <i class="fal fa-comment-lines"></i>
+                                        Comments ({{blog.get_blog_comments.count}})
+                                    </li>
+                                </ul>
+                                <h4 class="post_title">
+                                    <a href="{{blog.get_absolute_url}}">{{ blog.title }}</a>
+                                </h4>
+                                <p class="post_text">
+                                    {{ blog.content | truncatechars:100 | safe }}
+                                </p>
+                                <a href="{{blog.get_absolute_url}}" class="thm-btn bg-thm-color-white thm-color-one btn-rectangle">Read More <i class="fal fa-chevron-right ml-2"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Coach block -->
+                
+                
+                {% endfor %}
+                
+            </div>
         </div>
-    </div>
-    <!-- Sponsors End -->
+    </section>
+    <!-- Coach Grid End -->
     <!-- Newsletter Start -->
     <section class="section bg-thm-color-two-gradient z-1 newsletter_form_sec">
         <img src="{% static 'assets/images/elements/element_1.png' %}" class="element_1" alt="Element">
@@ -462,62 +293,14 @@
         </div>
     </section>
     <!-- Newsletter End -->
-    <!-- Why Us Start -->
-    <section class="section-padding about">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-5">
-                    <div class="section-title left-align">
-                        <p class="subtitle">
-                            <i class="fal fa-book"></i>
-                            What We Offer
-                        </p>
-                        <h3 class="title">People Why Choose Our Coachs</h3>
-                    </div>
-                    <ul class="why-us-list">
-                        <li>
-                            <i class="icon fal fa-check"></i>
-                            <div class="text">
-                                <h6 class="mb-2">We Teach You How To Coach Yourself</h6>
-                                <p class="mb-0">Sed ut perspiciatis unde omnis iste natus sit voluptatemec accusantium doloremque laudantium</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon fal fa-check"></i>
-                            <div class="text">
-                                <h6 class="mb-2">We Teach You How To Feel Better</h6>
-                                <p class="mb-0">Sed ut perspiciatis unde omnis iste natus sit voluptatemec accusantium doloremque laudantium</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon fal fa-check"></i>
-                            <div class="text">
-                                <h6 class="mb-2">We Teach You How To Take Massive</h6>
-                                <p class="mb-0">Sed ut perspiciatis unde omnis iste natus sit voluptatemec accusantium doloremque laudantium</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-xl-7">
-                    <div class="image_box relative why_us_box mb-0">
-                        <img src="{% static 'assets/images/why_us.png' %}" alt="img" class="image-fit">
-                        <span class="bg-thm-color-three circle_element"></span>
-                        <img src="{% static 'assets/images/elements/element_3.png' %}" class="element_1 zoom-fade" alt="Element">
-                        <img src="{% static 'assets/images/elements/element_4.png' %}" class="element_2 rotate_elem" alt="Element">
-                        <img src="{% static 'assets/images/elements/element_5.png' %}" class="element_3 rotate_elem" alt="Element">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Why Us End -->
+
     <!-- Plane Start -->
     <div class="bg-thm-color-two plane_box relative z-1">
         <div class="container relative z-1">
             <div class="row justify-content-center">
                 <div class="col-xl-9 col-lg-11 relative z-1">
                     <img src="{% static 'assets/images/elements/element_6.png' %}" class="element_1 rotate_elem" alt="Element">
-                    <h2 class="thm-color-white">The Life Coach School Has The Most Amazing Tools And Cutting-Edge Training</h2>
+                    <h2 class="thm-color-white">The WELL-BEING CLUB is full of fun and educative</h2>
                 </div>
             </div>
             <img src="{% static 'assets/images/elements/element_7.png' %}" class="element_2 zoom-fade" alt="Element">
