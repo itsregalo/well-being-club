@@ -53,6 +53,7 @@ def EmailSubscriberView(request, *args, **kwargs):
         if form.is_valid():
             email = form.cleaned_data['email']
             send_mail('Email Subscription', 'You have been successfully subscribed to our email list', ' yourmail.com', [email])
+            form.save()
             return HttpResponseRedirect(reverse('core:index'))
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         

@@ -17,8 +17,10 @@ class ContactForm(forms.ModelForm):
 class EmailSubscriberForm(forms.ModelForm):
     class Meta:
         model = EmailSubscriber
-        fields = ['email']
+        fields = ['email', 'receive_email']
 
         widgets = {
             'email': forms.TextInput(attrs={"class":"form-control","placeholder":"Enter Your Email"}),
+            'receive_email': forms.CheckboxInput(attrs={"class":"custom-control-input", 
+                                                        "type":"checkbox", 'id':'condition'}),
         }

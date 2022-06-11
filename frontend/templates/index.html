@@ -275,6 +275,7 @@
                         <form  actiion="{% url 'core:email-subscriber' %}" method="POST" >{% csrf_token %}
                             <div class="input-group">
                                 {{subscribe_form.email}}
+                                <small class="text-danger">{{subscribe_form.error}}</small>
                                 <div class="input-group-append ml-0">
                                     <button type="submit" class="thm-btn bg-thm-color-three btn-rounded">
                                         Subscribe Now
@@ -283,8 +284,8 @@
                                 </div>
                             </div>
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="condition" name="condition" checked>
-                                <label class="custom-control-label" for="condition">Get Update Monthly Subscription</label>
+                                {{ subscribe_form.receive_email }}
+                                <label class="custom-control-label" for="receive_email">Get Update Monthly Subscription</label>
                             </div>
                         </form>
                     </div>
