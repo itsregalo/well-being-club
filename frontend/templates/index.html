@@ -272,9 +272,9 @@
                 </div>
                 <div class="col-xl-8">
                     <div class="newsletter_form">
-                        <form>
+                        <form  actiion="{% url 'core:email-subscriber' %}" method="POST" >{% csrf_token %}
                             <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Enter Your Email" autocomplete="off" name="#">
+                                {{subscribe_form.email}}
                                 <div class="input-group-append ml-0">
                                     <button type="submit" class="thm-btn bg-thm-color-three btn-rounded">
                                         Subscribe Now

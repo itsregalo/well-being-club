@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from .forms import ContactForm
+from .forms import ContactForm, EmailSubscriberForm
 from django.core.mail import send_mail
 
 from videos.models import Video
@@ -16,7 +16,8 @@ def IndexView(request, *args, **kwargs):
     context = {
         'latest_blogs': blogs,
         'latest_videos': videos,
-        'latest_tips': tips
+        'latest_tips': tips,
+        'subscribe_form': EmailSubscriberForm(),
     }
     return render(request, 'index.html', context)
 
@@ -45,6 +46,16 @@ def ContactView(request, *args, **kwargs):
 
     return render(request, 'contact.html', context)
 
+def EmailSubscriberView(request, *args, **kwargs):
+    form = EmailSubscriberForm()
+    if request.method == 'POST':
+        form = EmailSubscriberForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            send_mail('Email Subscription', 'You have been successfully subscribed to our email list', ' yourmail.com', [email])
+            return HttpResponseRedirect(reverse('core:index'))
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        
 def error_404(request, exception):
     return render(request, '404.html')
 

@@ -7,5 +7,6 @@ urlpatterns = [
     path('', IndexView, name='index'),
     path('contact/', ContactView, name='contact'),
     path('faq/', FAQView, name='faqs'),
-    path('about-us/', AboutUsView, name='about-us')
+    path('about-us/', AboutUsView, name='about-us'),
+    path('email-subscriber/', EmailSubscriberView, name='email-subscriber'),
 ]
