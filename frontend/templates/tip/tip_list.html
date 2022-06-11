@@ -11,7 +11,6 @@
         <div class="container relative z-1">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="page_title">Blog Grid</h1>
                     <div class="page_breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -29,36 +28,48 @@
         </div>
     </div>
     <!-- Subheader End -->
+
+    <br>
+    <div class="col-lg-12 text-center">
+        <button type="submit" class="thm-btn bg-thm-color-three thm-color-three-shadow btn-rectangle"><a href="{% url 'tips:tip-create' %}">NEW TIP</a> <i class="fal fa-plus ml-2"></i></button>
+    </div>
     <!-- Section Start -->
     <div class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mb-md-80">
-                    <!-- post no thumb -->
-                    <!-- Post Bg -->
-                    <article class="post post_list style_2 with_bg" style="background-image: url(assets/images/blog/bg.jpg);">
-                        <div class="post_caption">
-                            <ul class="post_meta">
-                                <li>
-                                    <i class="fal fa-user"></i>
-                                    Nichel Jhon
-                                </li>
-                                <li>
-                                    <i class="fal fa-calendar-alt"></i>
-                                    25 Mar 2021
-                                </li>
-                                <li>
-                                    <i class="fal fa-comment-lines"></i>
-                                    Comments (05)
-                                </li>
-                            </ul>
-                            <h4 class="post_title">
-                                <a href="blog-details.html">Postmortem Of Gutenberg The Launch So We Can Embrace Gutenberg The Product</a>
-                            </h4>
-                            <a href="blog-details.html" class="thm-btn bg-thm-color-two thm-color-one btn-rectangle">Read More <i class="fal fa-chevron-right ml-2"></i></a>
-                        </div>
-                    </article>
-                    <!-- Post Bg -->
+
+                    
+                    {% for tip in tips %}
+                         <!-- post no thumb -->
+                        <article class="post post_list style_2 no-thumb">
+                            <div class="post_caption">
+                                <ul class="post_meta">
+                                    <li>
+                                        <i class="fal fa-user"></i>
+                                        {{tip.uploaded_by}}
+                                    </li>
+                                    <li>
+                                        <i class="fal fa-calendar-alt"></i>
+                                        {{tip.pub_date | date:"d M Y"}}
+                                    </li>
+                                    <li>
+                                        <i class="fal fa-comment-lines"></i>
+                                        Comments ({{ tip.get_tip_comments.count }})
+                                    </li>
+                                </ul>
+                                <h4 class="post_title">
+                                    <a href="{{ tip.get_absolute_url }}">{{ tip.title }}</a>
+                                </h4>
+                                <p class="post_text">
+                                    {{ tip.content | truncatechars:200 | safe }}
+                                </p>
+                                <a href="{{ tip.get_absolute_url }}" class="thm-btn bg-thm-color-white thm-color-one btn-rectangle">Read More <i class="fal fa-chevron-right ml-2"></i></a>
+                            </div>
+                        </article>
+                        <!-- post no thumb --> 
+                    {% endfor %}
+                        
                     <!-- Pagination -->
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
@@ -102,24 +113,15 @@
                         <div class="sidebar_widget">
                             <h5 class="widget_title">Category</h5>
                             <ul class="category_widgets">
-                                <li>
-                                    <a href="blog-grid.html">Life Courses</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Business Courses</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Advance Wordpress</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Basic HTML Coach</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Health Courses</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">English Learning</a>
-                                </li>
+                                
+                                
+                                {% for category in categories %}
+                                    <li>
+                                        <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                                    </li>
+                                {% endfor %}
+                                    
+                                
                             </ul>
                         </div>
                         <div class="sidebar_widget recent_widgets">
@@ -127,7 +129,7 @@
                             <ul>
                                 <li>
                                     <div class="image">
-                                        <img src="assets/images/blog/1.jpg" alt="img" class="image-fit">
+                                        <img src="{% static 'assets/images/blog/1.jpg' %}" alt="img" class="image-fit">
                                     </div>
                                     <div class="text">
                                         <h6 class="mb-0">
@@ -138,7 +140,7 @@
                                 </li>
                                 <li>
                                     <div class="image">
-                                        <img src="assets/images/blog/2.jpg" alt="img" class="image-fit">
+                                        <img src="{% static 'assets/images/blog/2.jpg' %}" alt="img" class="image-fit">
                                     </div>
                                     <div class="text">
                                         <h6 class="mb-0"><a href="blog-details.html">Creating Online Environme Work Well Older</a></h6>
@@ -147,7 +149,7 @@
                                 </li>
                                 <li>
                                     <div class="image">
-                                        <img src="assets/images/blog/3.jpg" alt="img" class="image-fit">
+                                        <img src="{% static 'assets/images/blog/3.jpg' %}" alt="img" class="image-fit">
                                     </div>
                                     <div class="text">
                                         <h6 class="mb-0"><a href="blog-details.html">Signs Website Feels More Haunted House</a></h6>
@@ -156,27 +158,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="sidebar_widget">
-                            <a href="#" class="d-block">
-                                <img src="assets/images/blog/adv.jpg" alt="adv" class="image-fit">
-                            </a>
-                        </div>
-                        <div class="sidebar_widget">
-                            <h5 class="widget_title">Popular Tags</h5>
-                            <div class="tags">
-                                <a href="blog-grid.html">Business</a>
-                                <a href="blog-grid.html">Corporate</a>
-                                <a href="blog-grid.html">HTML</a>
-                                <a href="blog-grid.html">Art</a>
-                                <a href="blog-grid.html">Finance</a>
-                                <a href="blog-grid.html">Investment</a>
-                                <a href="blog-grid.html">CSS</a>
-                                <a href="blog-grid.html">Coach</a>
-                                <a href="blog-grid.html">Planing</a>
-                                <a href="blog-grid.html">Creative</a>
-                                <a href="blog-grid.html">Health</a>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

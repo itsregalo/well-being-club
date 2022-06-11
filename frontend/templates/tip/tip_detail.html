@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ blog.title }} {% endblock title %}  
+
+{% block body %}
+
+
+    <!-- Subheader Start -->
+    <div class="subheader relative z-1" style="background-image: url(/static/assets/images/subheader.jpg);">
+        <div class="container relative z-1">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item" aria-current="page">Tips</li>
+                                <li class="breadcrumb-item active" aria-current="page">Read</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <img src="{% static 'assets/images/elements/element_19.png' %}" alt="element" class="element_1 slideRightTwo">
+            <img src="{% static 'assets/images/elements/element_10.png' %}" alt="element" class="element_2 zoom-fade">
+            <img src="{% static 'assets/images/elements/element_20.png' %}" alt="element" class="element_3 rotate_elem">
+            <img src="{% static 'assets/images/elements/element_21.png' %}" alt="element" class="element_4 rotate_elem">
+        </div>
+    </div>
+    <!-- Subheader End -->
+    <!-- Section Start -->
+    <div class="section-padding">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-8 mb-md-80">
+                    <!-- post details -->
+                    <article class="post post_list style_2 post_details mb-0">
+                        <div class="post_img">
+                            <img src="{{ tip.pic_thumbnail.url }}" alt="img" class="image-fit">
+                        </div>
+                        <div class="post_caption">
+                            <ul class="post_meta">
+                                <li>
+                                    <i class="fal fa-user"></i>
+                                    {{ tip.uploaded_by }}
+                                </li>
+                                <li>
+                                    <i class="fal fa-calendar-alt"></i>
+                                    {{ tip.pub_date | date:'d M Y' }}
+                                </li>
+                                <li>
+                                    <i class="fal fa-comment-lines"></i>
+                                    Comments ({{tip.get_tip_comments.count}})
+                                </li>
+                            </ul>
+                            <p>{{ tip.content }}</p>
+                        </div>
+                        <!-- Post Tags & Share Start -->
+                        <div class="post_tags_share">
+                            <div class="post_tags">
+                                <h6>Category: </h6>
+                                <div class="tags">
+                                    <a href="{{ category.get_absolute_url }}">{{tip.category.name}}</a>
+                                </div>
+                            </div>
+                            <div class="post_share">
+                                <h6>Share: </h6>
+                                <ul class="social">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-behance"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Post Tags & Share End -->
+                        <!-- Post Navigation Start -->
+                        <ul class="post_navigation">
+                            <li>
+                                <div class="image">
+                                    <img src="{% static 'assets/images/blog/1.jpg' %}" alt="img" class="image-fit">
+                                </div>
+                                <div class="text">
+                                    <h6 class="mb-0">
+                                        <a href="blog-details.html">Build Seamless Spreadshet Import Experience</a>
+                                    </h6>
+                                    <p class="mb-0"><strong><i class="fal fa-calendar-alt"></i> </strong><a href="blog-grid.html">25 May 2021</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <img src="{% static 'assets/images/blog/2.jpg' %}" alt="img" class="image-fit">
+                                </div>
+                                <div class="text">
+                                    <h6 class="mb-0"><a href="blog-details.html">Creating Online Environme Work Well Older</a></h6>
+                                    <p class="mb-0"><strong><i class="fal fa-calendar-alt"></i> </strong><a href="blog-grid.html">25 May 2021</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- Post Navigation End -->
+                    </article>
+                    <!-- Post Comments Start -->
+                    <h4>Comments</h4>
+                    <ul class="comments mb-xl-30">
+                        {% for comment in tip_comments %}
+                            <li class="comment col-6">
+                                <div class="comment_text">
+                                    <h6 class="mb-0">{{ comment.user.username }}</h6>
+                                    <p class="comment_date">{{ comment.pub_date | date:'d M Y' }}</p>
+                                    <p class="mb-0">{{ comment.content }} </p>
+                                
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <!-- Post Comments End -->
+                    <!-- Comment Form Start -->
+                    <div class="comment_form">
+                        <h4>Leave A Comment</h4>
+                        <form action="" method="POST">{% csrf_token %}
+                            <div class="row">
+                               
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        {{comment_form.content}}
+                                        <i class="fal fa-pen"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="thm-btn bg-thm-color-three thm-color-three-shadow btn-rectangle">Send Comment <i class="fal fa-chevron-right ml-2"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Comment Form End -->
+                    <!-- post details -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar style_2">
+                        <div class="sidebar_widget">
+                            <form>
+                                <div class="input-group search_widget">
+                                    <input type="text" name="#" placeholder="Search" class="form-control" autocomplete="off">
+                                    <div class="input-group-append ml-0">
+                                        <button type="submit" class="thm-btn bg-thm-color-two thm-color-white thm-color-two-shadow btn-rectangle btn-small">
+                                            <i class="fal fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="sidebar_widget">
+                            <h5 class="widget_title">Category</h5>
+                            <ul class="category_widgets">
+                                
+                                
+                                {% for category in categories %}
+                                    <li>
+                                        <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                                    </li>
+                                {% endfor %}
+                                    
+                                
+                            </ul>
+                        </div>
+                        <div class="sidebar_widget recent_widgets">
+                            <h5 class="widget_title">Latest News</h5>
+                            <ul>
+                                <li>
+                                    <div class="image">
+                                        <img src="{% static 'assets/images/blog/1.jpg' %}" alt="img" class="image-fit">
+                                    </div>
+                                    <div class="text">
+                                        <h6 class="mb-0">
+                                            <a href="blog-details.html">Build Seamless Spreadshet Import Experience</a>
+                                        </h6>
+                                        <p class="mb-0"><strong><i class="fal fa-calendar-alt"></i> </strong><a href="blog-grid.html">25 May 2021</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="image">
+                                        <img src="{% static 'assets/images/blog/2.jpg' %}" alt="img" class="image-fit">
+                                    </div>
+                                    <div class="text">
+                                        <h6 class="mb-0"><a href="blog-details.html">Creating Online Environme Work Well Older</a></h6>
+                                        <p class="mb-0"><strong><i class="fal fa-calendar-alt"></i> </strong><a href="blog-grid.html">25 May 2021</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="image">
+                                        <img src="{% static 'assets/images/blog/3.jpg' %}" alt="img" class="image-fit">
+                                    </div>
+                                    <div class="text">
+                                        <h6 class="mb-0"><a href="blog-details.html">Signs Website Feels More Haunted House</a></h6>
+                                        <p class="mb-0"><strong><i class="fal fa-calendar-alt"></i> </strong><a href="blog-grid.html">25 May 2021</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Section End -->
+
+
+{% endblock body %}

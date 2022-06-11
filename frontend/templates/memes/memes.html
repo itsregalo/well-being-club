@@ -15,7 +15,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Portfolio Gallery</li>
+                                <li class="breadcrumb-item active" aria-current="page">Meme Gallery</li>
                             </ol>
                         </nav>
                     </div>
@@ -31,144 +31,69 @@
     <!-- Section Start -->
     <div class="section-padding isotope-filter-items">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="filter-btns mb-5">
-                        <ul>
-                            <li class="active filter-trigger" data-filter="*">
-                                <a href="#">All</a>
-                            </li>
-                            <li class="filter-trigger" data-filter=".lifestyle">
-                                <a href="#">Lifestyle</a>
-                            </li>
-                            <li class="filter-trigger" data-filter=".goals">
-                                <a href="#">Goals</a>
-                            </li>
-                            <li class="filter-trigger" data-filter=".fashion">
-                                <a href="#">Fashion</a>
-                            </li>
-                            <li class="filter-trigger" data-filter=".health">
-                                <a href="#">Health</a>
-                            </li>
-                            <li class="filter-trigger" data-filter=".business">
-                                <a href="#">Business</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <div class="col-lg-12 text-center">
+                <button type="button" class="thm-btn bg-thm-color-three thm-color-three-shadow btn-rectangle" data-toggle="modal" data-target="#newMeme">UPLOAD <i class="fal fa-plus ml-2"></i></button>
+            </div><br>
+
+            
             <div class="row filteritems">
                 <!-- Portfolio Start -->
-                <div class="col-lg-4 col-md-6 masonry-item lifestyle business health">
-                    <div class="portfolio_box type_gallery">
-                        <div class="portfolio_img">
-                            <img src="{% static 'assets/images/portfolio/1.jpg' %}" class="image-fit" alt="img">
+                {% for meme in memes %}
+                    <div class="col-lg-4 col-md-6 masonry-item lifestyle business health">
+                        <div class="portfolio_box type_gallery type_masonry">
+                            <div class="portfolio_img">
+                                <img src="{{ meme.image.url }}" class="image-fit" alt="img">
+                            </div>
+                            <div class="link">
+                                
+                                {% if request.user == meme.user %}
+                                  <a href="{% url 'memes:meme-delete' meme.pk %}"><i class="fal fa-trash"></i></a></i>
+                                {% endif %}
+                                    
+                                <p>{{ meme.caption }}</p>
+                            </div>
                         </div>
-                        <a href="portfolio-details.html" class="link">
-                            <i class="fal fa-plus"></i>
-                        </a>
                     </div>
-                </div>
+                {% endfor %}
                 <!-- Portfolio End -->
-                <!-- Portfolio Start -->
-                <div class="col-lg-4 col-md-6 masonry-item goals lifestyle business">
-                    <div class="portfolio_box type_gallery">
-                        <div class="portfolio_img">
-                            <img src="{% static 'assets/images/portfolio/2.jpg' %}" class="image-fit" alt="img">
-                        </div>
-                        <a href="portfolio-details.html" class="link">
-                            <i class="fal fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Portfolio End -->
-                <!-- Portfolio Start -->
-                <div class="col-lg-4 col-md-6 masonry-item fashion goals lifestyle">
-                    <div class="portfolio_box type_gallery">
-                        <div class="portfolio_img">
-                            <img src="{% static 'assets/images/portfolio/3.jpg' %}" class="image-fit" alt="img">
-                        </div>
-                        <a href="portfolio-details.html" class="link">
-                            <i class="fal fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Portfolio End -->
-                <!-- Portfolio Start -->
-                <div class="col-lg-4 col-md-6 masonry-item health fashion goals">
-                    <div class="portfolio_box type_gallery">
-                        <div class="portfolio_img">
-                            <img src="{% static 'assets/images/portfolio/4.jpg' %}" class="image-fit" alt="img">
-                        </div>
-                        <a href="portfolio-details.html" class="link">
-                            <i class="fal fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Portfolio End -->
-                <!-- Portfolio Start -->
-                <div class="col-lg-4 col-md-6 masonry-item business health fashion">
-                    <div class="portfolio_box type_gallery">
-                        <div class="portfolio_img">
-                            <img src="{% static 'assets/images/portfolio/5.jpg' %}" class="image-fit" alt="img">
-                        </div>
-                        <a href="portfolio-details.html" class="link">
-                            <i class="fal fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Portfolio End -->
-                <!-- Portfolio Start -->
-                <div class="col-lg-4 col-md-6 masonry-item lifestyle business health">
-                    <div class="portfolio_box type_gallery">
-                        <div class="portfolio_img">
-                            <img src="{% static 'assets/images/portfolio/6.jpg' %}" class="image-fit" alt="img">
-                        </div>
-                        <a href="portfolio-details.html" class="link">
-                            <i class="fal fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Portfolio End -->
-                <!-- Portfolio Start -->
-                <div class="col-lg-4 col-md-6 masonry-item goals lifestyle business">
-                    <div class="portfolio_box type_gallery">
-                        <div class="portfolio_img">
-                            <img src="{% static 'assets/images/portfolio/7.jpg' %}" class="image-fit" alt="img">
-                        </div>
-                        <a href="portfolio-details.html" class="link">
-                            <i class="fal fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Portfolio End -->
-                <!-- Portfolio Start -->
-                <div class="col-lg-4 col-md-6 masonry-item fashion goals lifestyle">
-                    <div class="portfolio_box type_gallery">
-                        <div class="portfolio_img">
-                            <img src="{% static 'assets/images/portfolio/8.jpg' %}" class="image-fit" alt="img">
-                        </div>
-                        <a href="portfolio-details.html" class="link">
-                            <i class="fal fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Portfolio End -->
-                <!-- Portfolio Start -->
-                <div class="col-lg-4 col-md-6 masonry-item health fashion goals">
-                    <div class="portfolio_box type_gallery">
-                        <div class="portfolio_img">
-                            <img src="{% static 'assets/images/portfolio/9.jpg' %}" class="image-fit" alt="img">
-                        </div>
-                        <a href="portfolio-details.html" class="link">
-                            <i class="fal fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Portfolio End -->
+                
             </div>
         </div>
     </div>
     <!-- Section End -->
+
+
+    <!-- Modal -->
+<div class="modal fade" id="newMeme" tabindex="-1" role="dialog" aria-labelledby="newMemeLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newMemeLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'memes:memes' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="form-group">
+                <label for="caption">caption</label>
+                {{ form.caption }}
+            </div>
+
+            <div class="form-group">
+                <label for="image">UPLOAD</label>
+                {{ form.image }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+    
 
 {% endblock body %}

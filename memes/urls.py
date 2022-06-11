@@ -5,5 +5,5 @@ app_name = 'memes'
 
 urlpatterns = [
     path('', memes, name='memes'),
-    path('<int:id>/delete/', meme_delete, name='meme_delete'),
+    path('<int:id>/delete/', meme_delete, name='meme-delete'),
 ]

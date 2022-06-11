@@ -52,7 +52,7 @@ def TipDetailView(request, slug, *args, **kwargs):
                 new_comment.user = request.user
                 new_comment.post = tip
                 new_comment.save()
-                return JsonResponse({"comment":model_to_dict(new_comment)})
+                return HttpResponseRedirect(reverse('tips:tip-detail', kwargs={'slug':slug, 'pk':tip.pk}))
             messages.error(request,'Oops! please try again')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         messages.error(request,'Oops! please login to comment')

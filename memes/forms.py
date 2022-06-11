@@ -5,9 +5,9 @@ from .models import Meme
 class MemeForm(forms.ModelForm):
     class Meta:
         model = Meme
-        fields = ['title', 'image']
+        fields = ['caption', 'image']
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'caption': forms.TextInput(attrs={'class': 'form-control'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
         }

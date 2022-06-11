@@ -11,9 +11,11 @@ def memes(request):
         if request.user.is_authenticated:
             form = MemeForm(request.POST, request.FILES)
             if form.is_valid():
-                form.save()
-                return HttpResponseRedirect(reverse('memes'))
-    memes = Meme.objects.all()
+                meme = form.save(commit=False)
+                meme.user = request.user
+                meme.save()
+                return HttpResponseRedirect(reverse('memes:memes'))
+    memes = Meme.objects.all().order_by('-created_at')
     context = {
         'memes': memes,
         'form': form,
@@ -24,4 +26,4 @@ def meme_delete(request, id):
     meme = Meme.objects.get(id=id)
     if request.user == meme.user:
         meme.delete()
-    return HttpResponseRedirect(reverse('memes'))
+    return HttpResponseRedirect(reverse('memes:memes'))

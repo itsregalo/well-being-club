@@ -22,6 +22,7 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('videos/', include('videos.urls', namespace='videos')),
+    path('tips/', include('tips.urls', namespace='tips')),  
     path('memes/', include('memes.urls', namespace='memes')),
     
 ]
